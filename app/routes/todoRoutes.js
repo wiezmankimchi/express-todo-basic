@@ -9,7 +9,7 @@
 
 const express = require('express')
 const router = express.Router()
-const todo = require('./todo')
+const todo = require('../models/todo')
 
 //get all the todo from the collection
 router.route('/all').get(function(req, res, next){
@@ -74,25 +74,6 @@ router.route('/update/:id').post(function(req, res, next){
         }
     })
 
-
-    // todo.findById(id, function(err, todo){
-    //     if (err) {
-    //        res.status(404).send(`Unable to find ToDo itemID: ${id}`) 
-    //     } else {
-    //         todo.name = req.body.name
-    //         todo.done = req.body.done
-
-    //         todo.save({
-    //             function(err, todo){
-    //                 if(err) {
-    //                     res.status(404).send(`Unable to update ToDo itemID: ${id}`)
-    //                 } else {
-    //                     res.status(200).json(todo)
-    //                 }
-    //             }
-    //         })
-    //     }
-    // })
 })
 
 

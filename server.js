@@ -12,7 +12,8 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const todoRoutes = require('./app/routes')
+const todoRoutes = require('./app/routes/todoRoutes.js')
+const userRoutes = require('./app/routes/userRoutes.js')
 
 const morgan = require('morgan')
 
@@ -40,6 +41,7 @@ app.listen(config.APP_PORT)
 
 
 app.use('/api',todoRoutes)
+app.use('/user', userRoutes)
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:' + port)
